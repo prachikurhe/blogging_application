@@ -28,7 +28,7 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 
-	// post
+	// post this method used to create resource or user into the database
 	@PostMapping("/")
 	public ResponseEntity<UserDto> createUser(@Valid @RequestBody UserDto userDto) {
 		UserDto createUserDto = this.userService.createUser(userDto);
