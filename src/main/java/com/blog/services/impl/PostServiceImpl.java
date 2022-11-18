@@ -9,18 +9,29 @@ import org.springframework.stereotype.Service;
 import com.blog.entities.Post;
 import com.blog.payloads.PostDto;
 import com.blog.repositories.PostRepo;
+import com.blog.repositories.UserRepo;
 import com.blog.services.PostService;
+
 @Service
 
 public class PostServiceImpl implements PostService {
-	
-@Autowired
+
+	@Autowired
 	private PostRepo postRepo;
 
-@Autowired
-private ModelMapper modelMapper;
+	@Autowired
+	private ModelMapper modelMapper;
+	
+	@Autowired
+	private UserRepo userRepo;
+	
+	/*
+	 * @Autowired private
+	 *  CategoryRepo categoryRepo;
+	 */
+	
 	@Override
-	public Post createPost(PostDto postDto) {
+	public Post createPost(PostDto postDto, Integer userId, Integer category) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -50,7 +61,7 @@ private ModelMapper modelMapper;
 	}
 
 	@Override
-	public List<Post> getPostByCategory(Integer catagoryId) {
+	public List<Post> getPostByCategory(Integer categoryId) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -60,5 +71,7 @@ private ModelMapper modelMapper;
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+
 
 }

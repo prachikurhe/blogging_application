@@ -6,7 +6,7 @@ import com.blog.entities.Post;
 import com.blog.payloads.PostDto;
 
 public interface PostService {
-	Post createPost(PostDto postDto);
+	Post createPost(PostDto postDto, Integer userId, Integer category);
 	
 	Post updatePost(PostDto postDto, Integer postId);
 	
@@ -16,7 +16,7 @@ public interface PostService {
 	
 	Post getPostById(Integer postId);
 	
-	List<Post>getPostByCategory(Integer catagoryId);
+	List<Post>getPostByCategory(Integer categoryId);
 	
 	List<Post>getPostByUser(Integer userId);
 	
