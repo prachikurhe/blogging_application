@@ -1,0 +1,12 @@
+{"properties": [
+  {
+    "name": "string.datasource.driver-class-name",
+    "type": "java.lang.String",
+    "description": "A description for 'string.datasource.driver-class-name'"
+  },
+  {
+    "name": "spring,jpa.show-sql",
+    "type": "java.lang.String",
+    "description": "A description for 'spring,jpa.show-sql'"
+  }
+]}
