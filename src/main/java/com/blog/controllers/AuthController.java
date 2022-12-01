@@ -2,6 +2,7 @@ package com.blog.controllers;
 
 import javax.validation.Valid;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,12 +11,14 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.blog.Security.JwtTokenHelper;
+import com.blog.entities.User;
 import com.blog.exceptions.ApiException;
 import com.blog.payloads.JwtAuthRequest;
 import com.blog.payloads.JwtAuthResponse;
@@ -24,8 +27,11 @@ import com.blog.services.UserService;
 
 @RestController
 @RequestMapping("/api/v1/auth/")
+@CrossOrigin
 public class AuthController {
 
+	@Autowired
+    private ModelMapper mapper;
 	@Autowired
 	private JwtTokenHelper jwtTokenHelper;
 
@@ -43,10 +49,11 @@ public class AuthController {
 		this.authenticate(request.getUsername(), request.getPassword());
 		UserDetails userDetails = this.userDetailsService.loadUserByUsername(request.getUsername());
 		String token = this.jwtTokenHelper.generateToken(userDetails);
+		
 
 		JwtAuthResponse response = new JwtAuthResponse();
 		response.setToken(token);
-		// response.setUser(this.mapper.map((User) userDetails, UserDto.class));
+		response.setUser(this.mapper.map((User) userDetails, UserDto.class));
 		return new ResponseEntity<JwtAuthResponse>(response, HttpStatus.OK);
 	}
 
@@ -74,6 +81,30 @@ public class AuthController {
 		return new ResponseEntity<UserDto>(registeredUser, HttpStatus.CREATED);
 	}
 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	// get loggedin user data
 
 	/*

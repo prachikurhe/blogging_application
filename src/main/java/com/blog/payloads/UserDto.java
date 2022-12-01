@@ -5,10 +5,12 @@ import java.util.Set;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
-
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Null;
 import javax.validation.constraints.Size;
 
 import com.blog.entities.Role;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -28,6 +30,7 @@ public class UserDto {
 	private String email;
 	
 	@NotEmpty
+	@NotNull
 	@Size(min=4,max=10,message="Password must be min og 4 chars and max of 10 chars !! ")
 	private String password;
 	
@@ -35,4 +38,20 @@ public class UserDto {
 	private String about;
 
 	private Set<RoleDto> roles = new HashSet<>();
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+//	  @JsonIgnore
+	  //public String getPassword() { return this.password; }
+	 
 }
